@@ -1,0 +1,798 @@
+/* Resetando margens e padding do body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Evita a rolagem horizontal na página */
+    padding-top: 0px;
+    /* Espaço extra no topo para evitar sobreposição com o header fixo */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transição suave para a troca de temas */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Garante que o body ocupe pelo menos 100% da altura da viewport */
+}
+
+/* Tema escuro */
+body.dark-theme {
+    background-color: #000000;
+    color: #e5e5e5;
+}
+
+body.dark-theme header {
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-theme .nav-menu a {
+    color: #e5e5e5;
+}
+
+body.dark-theme .nav-menu a:hover {
+    background-color: #333;
+}
+
+body.dark-theme #theme-toggle {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+/* Tema claro */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-theme header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+}
+
+body.light-theme .nav-menu a {
+    color: #000000;
+}
+
+body.light-theme .nav-menu a:hover {
+    background-color: #e0e0e0;
+}
+
+body.light-theme #theme-toggle {
+    background-color: #ddd;
+    color: #000;
+    border: 1px solid #bbb;
+}
+
+body.light-theme #theme-toggle:hover {
+    background-color: #ccc;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cine {
+    color: white;
+}
+
+.trailers {
+    color: red;
+}
+
+nav {
+    flex: 1;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo dos itens do menu principal */
+.nav-menu li a {
+    text-transform: uppercase;
+    /* Transforma o texto em maiúsculas */
+    font-weight: bold;
+    /* Torna o texto em negrito */
+    color: #fff;
+    /* Cor do texto */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    padding: 10px;
+    /* Espaçamento interno */
+    display: block;
+    /* Faz o link preencher o item do menu */
+    transition: color 0.3s ease;
+    /* Transição suave para a cor */
+}
+
+/* Efeito hover para links do menu principal */
+.nav-menu li a:hover {
+    color: #f52323;
+    /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo do menu suspenso */
+.dropdown {
+    position: relative;
+    /* Necessário para o posicionamento absoluto do submenu */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    /* Exibe o menu suspenso ao passar o mouse */
+}
+
+/* Adiciona um ícone de seta para indicar que há um submenu */
+.dropdown>a::after {
+    content: ' ▼';
+    /* Adiciona uma seta para baixo */
+    font-size: 0.8em;
+    /* Tamanho da seta */
+    margin-left: 5px;
+    /* Espaço entre o texto e a seta */
+}
+
+/* Estilo do menu suspenso */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    /* Fundo preto para o tema escuro */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    /* Garante que o menu fique sobre outros elementos */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    min-width: 180px;
+    /* Largura mínima */
+}
+
+/* Estilo dos itens do menu suspenso */
+.dropdown-menu li {
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    /* Transição suave para o hover */
+}
+
+/* Links no menu suspenso */
+.dropdown-menu a {
+    color: #fff;
+    /* Texto branco para o tema escuro */
+    text-decoration: none;
+    display: block;
+    /* Garante que o link preencha o item do menu */
+    padding: 8px 12px;
+    /* Espaçamento interno */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    font-weight: bold;
+    /* Texto em negrito */
+    text-transform: uppercase;
+    /* Texto em maiúsculas */
+}
+
+/* Hover sobre os links do menu suspenso */
+.dropdown-menu a:hover {
+    background-color: #444;
+    /* Fundo escuro ao passar o mouse */
+}
+
+/* Menu suspenso no modo claro */
+body.light-theme .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    /* Fundo branco para o modo claro */
+    color: #000000;
+    /* Texto preto para o modo claro */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra para melhor visibilidade */
+}
+
+body.light-theme .dropdown-menu li {
+    margin: 0;
+}
+
+body.light-theme .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #000000;
+    /* Texto preto */
+    text-decoration: none;
+}
+
+body.light-theme .dropdown-menu a:hover {
+    background-color: #e0e0e0;
+    /* Fundo cinza claro ao passar o mouse */
+}
+
+/* Menu suspenso no modo escuro */
+body.dark-theme .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    /* Fundo escuro para o modo escuro */
+    color: #e5e5e5;
+    /* Texto claro para o modo escuro */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para melhor visibilidade */
+}
+
+body.dark-theme .dropdown-menu li {
+    margin: 0;
+}
+
+body.dark-theme .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #e5e5e5;
+    /* Texto claro */
+    text-decoration: none;
+}
+
+body.dark-theme .dropdown-menu a:hover {
+    background-color: #555555;
+    /* Fundo cinza escuro ao passar o mouse */
+}
+
+/* Estilo do contêiner de vídeo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* Proporção 16:9 */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Vídeo */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Remove bordas do iframe */
+    object-fit: cover;
+    /* Ajusta o vídeo para cobrir todo o contêiner */
+}
+
+/* Seção de informações do filme */
+.movie-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Imagem do filme */
+.movie-info img {
+    width: 260px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Detalhes do filme */
+.movie-details {
+    max-width: 900px;
+}
+
+footer {
+    background-color: #000;
+    color: #e5e5e5;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+
+/* Estilo do texto no footer */
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Ajustes para tema claro */
+body.light-theme footer {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-theme footer p {
+    color: #000000;
+}
+
+/* Estilo do botão de troca de tema */
+#theme-toggle {
+    background-color: #000000;
+    /* Fundo preto */
+    color: #fff;
+    /* Texto branco */
+    border: none;
+    /* Sem borda */
+    padding: 10px 20px;
+    /* Espaçamento interno */
+    cursor: pointer;
+    /* Cursor de clique */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco translúcido ao passar o mouse */
+}
+
+#theme-toggle.light-theme {
+    background-color: #ccc;
+    /* Fundo cinza no tema claro */
+    color: #000;
+    /* Texto preto no tema claro */
+}
+
+#theme-toggle.light-theme:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Fundo preto translúcido ao passar o mouse no tema claro */
+}
+
+/* Estilo do botão de troca de tema */
+#theme-toggle {
+    background-color: #000000;
+    /* Fundo preto */
+    color: #fff;
+    /* Texto branco */
+    border: none;
+    /* Sem borda */
+    padding: 10px 20px;
+    /* Espaçamento interno */
+    cursor: pointer;
+    /* Cursor de clique */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+}
+
+/* Estado do botão no modo escuro */
+body.dark-theme #theme-toggle {
+    background-color: #000000;
+    /* Fundo preto */
+    color: #fff;
+    /* Texto branco */
+    border: 1px solid #333;
+    /* Borda escura */
+}
+
+/* Estado do botão no modo claro */
+body.light-theme #theme-toggle {
+    background-color: #ddd;
+    /* Fundo cinza claro */
+    color: #000;
+    /* Texto preto */
+    border: 1px solid #bbb;
+    /* Borda cinza */
+}
+
+/* Hover estado no modo escuro */
+body.dark-theme #theme-toggle:hover {
+    background-color: #444;
+    /* Fundo preto mais claro */
+}
+
+/* Hover estado no modo claro */
+body.light-theme #theme-toggle:hover {
+    background-color: #ccc;
+    /* Fundo cinza mais claro */
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.main-content {
+    flex: 1;
+    margin-bottom: 40px;
+    /* Espaço extra para o footer */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Garante que o body ocupe pelo menos 100% da altura da viewport */
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Garantir que o título "CINE" e "Trailers" não sejam sobrescritos */
+header h1 a span {
+    color: inherit;
+    /* Mantém a cor padrão definida no CSS */
+}
+
+/* Tema Claro */
+body.light-theme .cine {
+    color: #ffffff;
+    /* Branco para o tema claro */
+}
+
+body.light-theme .trailers {
+    color: #e50914;
+    /* Vermelho para o tema claro */
+}
+
+/* Estilo do título no tema escuro */
+header h1 a .cine {
+    color: #ffffff;
+    /* Branco para o tema escuro */
+}
+
+header h1 a .trailers {
+    color: #e50914;
+    /* Vermelho para o tema escuro */
+}
+
+/* Estilo do título no tema claro */
+body.light-theme header h1 a .cine {
+    color: #000000;
+    /* Preto para o tema claro */
+}
+
+body.light-theme header h1 a .trailers {
+    color: #e50914;
+    /* Vermelho para o tema claro (se desejar manter) */
+}
+
+/* Estilo do carrossel */
+.carousel-container {
+    position: relative;
+    /* Permite o posicionamento absoluto dos botões dentro do contêiner */
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper para carrossel e botões */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Carrossel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    /* Permite rolar horizontalmente */
+    scroll-behavior: smooth;
+    gap: 20px;
+    /* Ajuste o espaçamento entre os itens do carrossel */
+}
+
+/* Ocultar a barra de rolagem */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    -ms-overflow-style: none;
+    /* IE e Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 450px;
+    /* Ajuste a largura conforme necessário */
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    /* Remover a transformação no hover */
+}
+
+
+.carousel-item img {
+    width: 100%;
+    height: 280px;
+    /* Ajuste a altura para aumentar o tamanho das imagens */
+    object-fit: cover;
+    /* Faz a imagem preencher o contêiner sem distorção */
+    border-radius: 10px;
+}
+
+.carousel-item p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+/* Botões de carrossel */
+/* Botões de carrossel */
+.carousel-arrow {
+    position: absolute;
+    /* Posiciona o botão em relação ao contêiner do carrossel */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Cor de fundo visível */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Ajuste o tamanho conforme necessário */
+    z-index: 10;
+    /* Garante que o botão esteja acima dos itens do carrossel */
+}
+
+/* Posicionamento do botão de rotação à direita */
+.carousel-arrow.right-arrow {
+    right: 40px;
+    /* Ajuste a distância do botão da borda direita */
+}
+
+/* Posicionamento do botão de rotação à esquerda */
+.carousel-arrow.left-arrow {
+    left: 10px;
+    /* Ajuste a distância do botão da borda esquerda */
+}
+
+/* Estilo do botão de elenco */
+#show-cast {
+    background-color: #000000;
+    /* Cor de fundo vermelha */
+    color: #fdfdfd;
+    /* Texto branco */
+    border: none;
+    /* Sem borda */
+    padding: 10px 20px;
+    /* Espaçamento interno */
+    cursor: pointer;
+    /* Cursor de clique */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s ease;
+    /* Transição suave para a cor de fundo */
+    margin: 20px auto;
+    /* Centraliza horizontalmente com espaço acima e abaixo */
+    display: block;
+    /* Faz o botão ocupar toda a largura disponível */
+    width: 200px;
+    /* Largura fixa */
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+/* Efeito hover no botão de elenco */
+#show-cast:hover {
+    background-color: #e40404;
+    /* Fundo vermelho escuro ao passar o mouse */
+}
+
+/* Estilo do carrossel de elenco */
+#cast-carousel {
+    display: none;
+    /* Oculta o carrossel inicialmente */
+}
+
+#cast-carousel h2 {
+    text-align: center;
+    /* Centraliza o título */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo do título */
+}
+
+/* Estilo do carrossel */
+.cast-carousel-container {
+    position: relative;
+    /* Permite o posicionamento absoluto dos botões dentro do contêiner */
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper para carrossel e botões */
+.cast-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Carrossel */
+.cast-carousel {
+    display: flex;
+    overflow-x: auto;
+    /* Permite rolar horizontalmente */
+    scroll-behavior: smooth;
+    gap: 0px;
+    /* Ajuste o espaçamento entre os itens do carrossel */
+}
+
+/* Ocultar a barra de rolagem */
+.cast-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.cast-carousel {
+    -ms-overflow-style: none;
+    /* IE e Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.cast-carousel-item {
+    flex: 0 0 auto;
+    width: 200px;
+    /* Ajuste a largura conforme necessário */
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    /* Remover a transformação no hover */
+}
+
+.cast-carousel-item img {
+    width: 175px;
+    /* Largura ajustada para o formato retangular em pé */
+    height: 200px;
+    /* Altura ajustada para o formato retangular em pé */
+    object-fit: cover;
+    /* Faz a imagem preencher o contêiner sem distorção */
+    border-radius: 10px;
+}
+
+.cast-carousel-item p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+/* Botões de carrossel */
+.cast-carousel-arrow {
+    position: absolute;
+    /* Posiciona o botão em relação ao contêiner do carrossel */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Cor de fundo visível */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Ajuste o tamanho conforme necessário */
+    z-index: 10;
+    /* Garante que o botão esteja acima dos itens do carrossel */
+}
+
+/* Posicionamento do botão de rotação à direita */
+.cast-carousel-arrow.right-arrow {
+    right: 40px;
+    /* Ajuste a distância do botão da borda direita */
+}
+
+/* Posicionamento do botão de rotação à esquerda */
+.cast-carousel-arrow.left-arrow {
+    left: 10px;
+    /* Ajuste a distância do botão da borda esquerda */
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    position: relative;
+}
+
+/* Linha roxa embaixo ao clicar */
+header h1 a:active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #800000;
+    /* Linha roxa */
+    position: absolute;
+    bottom: -5px;
+    /* Ajusta a posição da linha */
+    left: 0;
+}
+
+/* Estilo geral para o carrossel */
+.carousel-item a {
+    display: block;
+    /* Faz com que o link ocupe todo o espaço do item do carrossel */
+}
+
+/* Estilo para garantir que o texto dos links seja branco */
+.carousel-item a {
+    color: white;
+    /* Define a cor do texto dos links como branco */
+    text-decoration: none;
+    /* Remove o sublinhado do texto do link */
+}
+
+/* Se houver algum texto ou hover que você queira ajustar */
+.carousel-item a:hover,
+.carousel-item a:focus {
+    color: white;
+    /* Garante que a cor permaneça branca quando o link está em foco ou hover */
+}
+
+.btn-assistir {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #e20000;
+    color: rgb(255, 250, 250);
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    /* Espaçamento para empurrar o botão mais para baixo */
+    margin-left: 35px;
+    /* Espaçamento para empurrar o botão mais para a esquerda */
+}
+
+.btn-assistir:hover {
+    background-color: #CC0000;
+    transform: scale(1.05);
+}

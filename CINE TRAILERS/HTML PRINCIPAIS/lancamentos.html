@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTrailers - Lançamentos</title>
+    <link rel="stylesheet" href="../CSS/lancamentoscss.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="index.html">
+                <span class="cine">CiNE</span> <span class="trailers">TRAILERS</span>
+            </a>
+        </h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="filmes.html">Filmes</a></li>
+                        <li><a href="series.html">Séries</a></li>
+                        <li><a href="#">Animes</a></li>
+                        <li><a href="#">Doramas</a></li>
+                    </ul>
+                </li>
+                <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="sobremim.html">Sobre o Criador</a></li>
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <button id="theme-toggle">🌙 Trocar Tema</button>
+        </div>
+        </div>
+    </header>
+    <main>
+        <div class="carrossel-container">
+            <div class="carrossel">
+                <div class="item">
+                    <img src="https://s2-g1.glbimg.com/k6J0DsMl3_w3evhEsSfoP4348Tg=/0x0:1080x1350/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2024/4/m/NsJJlvTLCRvEs8KBowrw/deadpool-e-wolverine-cartaz.jpg"
+                        alt="Imagem do Lançamento">
+                    <a href="https://www.ingresso.com" class="botao-assistir">Assistir Agora</a>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dEbe0rS4Z2A?enablejsapi=1" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMmVkZGYzMjUtMTc2Ni00OTA0LTk4MGEtMWE4NjFiOWU5NGQ1XkEyXkFqcGdeQXVyNTAyNDMwNTk@._V1_.jpg"
+                        alt="Imagem do Lançamento">
+                    <a href="https://www.ingresso.com" class="botao-assistir">Assistir Agora</a>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6mQekraNWZM?enablejsapi=1" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <button class="carrossel-control left">&lt;</button>
+            <button class="carrossel-control right">&gt;</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 CineTrailers. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../javascripts/rolagemlanca.js"></script>
+    <script src="../javascripts/trocatemalanca.js"></script>
+    <script src="../javascripts/menu.js"></script>
+</body>
+
+</html>

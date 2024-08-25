@@ -1,0 +1,455 @@
+/* Resetando margens e padding do body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #e5e5e5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Evita a rolagem horizontal na página */
+    padding-top: 80px;
+    /* Espaço extra no topo para evitar sobreposição com o header fixo */
+}
+
+/* Estilo do header fixo */
+header {
+    position: fixed;
+    /* Faz o header fixo na parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    z-index: 1000;
+    /* Garante que o header fique acima de outros elementos */
+}
+
+/* Estilo do título no header */
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cine {
+    color: white;
+}
+
+.trailers {
+    color: red;
+}
+
+/* Estilo da navegação no header */
+nav {
+    flex: 1;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo dos itens do menu principal */
+.nav-menu li a {
+    text-transform: uppercase;
+    /* Transforma o texto em maiúsculas */
+    font-weight: bold;
+    /* Torna o texto em negrito */
+    color: #fff;
+    /* Cor do texto */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    padding: 10px;
+    /* Espaçamento interno */
+    display: block;
+    /* Faz o link preencher o item do menu */
+    transition: color 0.3s ease;
+    /* Transição suave para a cor */
+}
+
+/* Efeito hover para links do menu principal */
+.nav-menu li a:hover {
+    color: #ff0000;
+    /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo do menu suspenso */
+.dropdown {
+    position: relative;
+    /* Necessário para o posicionamento absoluto do submenu */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    /* Exibe o menu suspenso ao passar o mouse */
+}
+
+/* Adiciona um ícone de seta para indicar que há um submenu */
+.dropdown>a::after {
+    content: ' ▼';
+    /* Adiciona uma seta para baixo */
+    font-size: 0.8em;
+    /* Tamanho da seta */
+    margin-left: 5px;
+    /* Espaço entre o texto e a seta */
+}
+
+/* Estilo do menu suspenso */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    /* Fundo preto para o tema escuro */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    /* Garante que o menu fique sobre outros elementos */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    min-width: 180px;
+    /* Largura mínima */
+}
+
+/* Estilo dos itens do menu suspenso */
+.dropdown-menu li {
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    /* Transição suave para o hover */
+}
+
+/* Links no menu suspenso */
+.dropdown-menu a {
+    color: #fff;
+    /* Texto branco para o tema escuro */
+    text-decoration: none;
+    display: block;
+    /* Garante que o link preencha o item do menu */
+    padding: 8px 12px;
+    /* Espaçamento interno */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    font-weight: bold;
+    /* Texto em negrito */
+    text-transform: uppercase;
+    /* Texto em maiúsculas */
+}
+
+/* Hover sobre os links do menu suspenso */
+.dropdown-menu a:hover {
+    background-color: #444;
+    /* Fundo escuro ao passar o mouse */
+}
+
+/* Estilos para o tema claro */
+body.light-theme .dropdown-menu {
+    background-color: #fff;
+    /* Fundo branco para o tema claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra mais clara para o tema claro */
+}
+
+body.light-theme .dropdown-menu a {
+    color: #000;
+    /* Texto preto para o tema claro */
+}
+
+body.light-theme .dropdown-menu a:hover {
+    background-color: #ddd;
+    /* Fundo claro ao passar o mouse */
+}
+
+/* Estilo do carrossel */
+.carousel-container {
+    position: relative;
+    /* Permite o posicionamento absoluto dos botões dentro do contêiner */
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper para carrossel e botões */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Carrossel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    /* Permite rolar horizontalmente */
+    scroll-behavior: smooth;
+    gap: 15px;
+}
+
+/* Ocultar a barra de rolagem */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    -ms-overflow-style: none;
+    /* IE e Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Item do carrossel */
+.carousel-item {
+    flex: 0 0 auto;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.10);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    /* Define a altura das imagens */
+    object-fit: cover;
+    /* Faz a imagem preencher o contêiner */
+    border-radius: 10px;
+}
+
+.carousel-item p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+/* Botões de carrossel */
+.carousel-arrow {
+    position: absolute;
+    /* Posiciona o botão em relação ao contêiner do carrossel */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Cor de fundo visível */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Ajuste o tamanho conforme necessário */
+    z-index: 10;
+    /* Garante que o botão esteja acima dos itens do carrossel */
+}
+
+/* Posicionamento do botão de rotação à direita */
+.carousel-arrow.right-arrow {
+    right: 40px;
+    /* Ajuste a distância do botão da borda direita */
+}
+
+/* Posicionamento do botão de rotação à esquerda */
+.carousel-arrow.left-arrow {
+    left: 10px;
+    /* Ajuste a distância do botão da borda esquerda */
+}
+
+/* Estilo do botão de troca de tema */
+#theme-toggle {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#theme-toggle.light-theme {
+    background-color: #ccc;
+    color: #000;
+}
+
+/* Estilos padrão (tema escuro) */
+body,
+header,
+nav,
+.carousel,
+.nav-menu li a {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Estilos específicos para tema claro */
+body.light-theme,
+header.light-theme,
+nav.light-theme,
+.carousel.light-theme,
+.nav-menu li a.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Ajuste para links */
+.nav-menu li a {
+    color: inherit;
+}
+
+.nav-menu li a.light-theme {
+    color: inherit;
+}
+
+/* Estilo para o link do título */
+header h1 a {
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    color: inherit;
+    /* Herda a cor do texto, a ser sobrescrita pelos spans */
+}
+
+/* Estilos específicos para "CINE" */
+.cine {
+    color: #ffffff;
+    /* Cor para o tema escuro */
+}
+
+/* Estilo para "Trailers" */
+.trailers {
+    color: #e50914;
+    /* Vermelho */
+}
+
+/* Estilo geral para o h1 se necessário */
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    position: relative;
+}
+
+/* Linha roxa embaixo ao clicar */
+header h1 a:active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #800000;
+    /* Linha roxa */
+    position: absolute;
+    bottom: -5px;
+    /* Ajusta a posição da linha */
+    left: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 315px;
+    /* Ajuste conforme necessário */
+    border: none;
+}
+
+/* Estilo do contêiner de vídeo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* Proporção 16:9 */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Vídeo */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Remove bordas do iframe */
+    object-fit: cover;
+    /* Ajusta o vídeo para cobrir todo o contêiner */
+}
+
+footer {
+    background-color: #000;
+    color: #e5e5e5;
+    text-align: center;
+    padding: 20px;
+    /* Ajuste conforme necessário */
+    border-top: 1px solid #333;
+    margin-top: auto;
+    /* Garante que o footer vá para o fundo da página */
+}
+
+/* Estilo do texto no footer */
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Ajustes para tema claro */
+body.light-theme footer {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-theme footer p {
+    color: #000000;
+}
+
+.main-content {
+    flex: 1;
+    margin-bottom: 50px;
+    /* Espaço extra para o footer */
+}
+
+/* Garantir que o título "CINE" e "Trailers" não sejam sobrescritos */
+header h1 a span {
+    color: inherit;
+    /* Mantém a cor padrão definida no CSS */
+}
+
+/* Tema Claro */
+body.light-theme .cine {
+    color: #ffffff;
+    /* Branco para o tema claro */
+}
+
+body.light-theme .trailers {
+    color: #e50914;
+    /* Vermelho para o tema claro */
+}
+
+/* Estilo do título no tema escuro */
+header h1 a .cine {
+    color: #ffffff;
+    /* Branco para o tema escuro */
+}
+
+header h1 a .trailers {
+    color: #e50914;
+    /* Vermelho para o tema escuro */
+}
+
+/* Estilo do título no tema claro */
+body.light-theme header h1 a .cine {
+    color: #000000;
+    /* Preto para o tema claro */
+}
+
+body.light-theme header h1 a .trailers {
+    color: #e50914;
+    /* Vermelho para o tema claro (se desejar manter) */
+}

@@ -1,0 +1,300 @@
+/* Resetando margens e padding do body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #e5e5e5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-top: 60px;
+    /* Espaço extra no topo para o header fixo */
+}
+
+/* Estilo do header */
+header {
+    background-color: #000;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    position: fixed;
+    /* Torna o header fixo no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Garante que o header fique acima de outros elementos */
+}
+
+/* Estilo do título */
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    color: #e50914;
+    position: relative;
+    /* Necessário para o underline ao clicar */
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header h1 a:hover {
+    color: #e50914;
+}
+
+header h1 a:active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #800000;
+    /* Linha roxa */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Estilo do menu de navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li {
+    margin: 0;
+    position: relative;
+    /* Necessário para o dropdown */
+}
+
+.nav-menu a {
+    color: #e5e5e5;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+}
+
+.nav-menu a:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Menu suspenso */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #e5e5e5;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #333;
+}
+
+/* Vídeo em destaque */
+.featured-video {
+    position: relative;
+    width: 100%;
+    padding-top: 33.25%;
+    /* Proporção 16:9 */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.featured-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contêiner do carrossel */
+.carousel-container {
+    position: relative;
+    /* Permite o posicionamento absoluto dos botões dentro do contêiner */
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper para carrossel e botões */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Carrossel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    /* Permite rolar horizontalmente */
+    scroll-behavior: smooth;
+    gap: 10px;
+}
+
+/* Ocultar a barra de rolagem */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    -ms-overflow-style: none;
+    /* IE e Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Item do carrossel */
+.carousel-item {
+    flex: 0 0 auto;
+    width: 350px;
+    /* Largura maior para formato horizontal */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    /* Altura ajustada para formato retangular deitado */
+    object-fit: cover;
+    /* Faz a imagem preencher o contêiner */
+    border-radius: 10px;
+}
+
+/* Botões de carrossel */
+.carousel-arrow {
+    position: absolute;
+    /* Posiciona o botão em relação ao contêiner do carrossel */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Cor de fundo visível */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Ajuste o tamanho conforme necessário */
+    z-index: 10;
+    /* Garante que o botão esteja acima dos itens do carrossel */
+}
+
+/* Posicionamento do botão de rotação à direita */
+.carousel-arrow.right-arrow {
+    right: 40px;
+    /* Ajuste a distância do botão da borda direita */
+}
+
+/* Posicionamento do botão de rotação à esquerda */
+.carousel-arrow.left-arrow {
+    left: 10px;
+    /* Ajuste a distância do botão da borda esquerda */
+}
+
+/* Estilo do botão de troca de tema */
+#theme-toggle {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#theme-toggle.light-theme {
+    background-color: #ccc;
+    color: #000;
+}
+
+/* Estilos padrão (tema escuro) */
+body,
+header,
+nav,
+.carousel,
+.nav-menu li a {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Estilos específicos para tema claro */
+body.light-theme,
+header.light-theme,
+nav.light-theme,
+.carousel.light-theme,
+.nav-menu li a.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Ajuste para links */
+.nav-menu li a {
+    color: inherit;
+}
+
+.nav-menu li a.light-theme {
+    color: inherit;
+}
+
+/* Exemplo de media query para dispositivos móveis */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        padding: 10px;
+    }
+}
